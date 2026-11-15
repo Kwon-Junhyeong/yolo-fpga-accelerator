@@ -1,0 +1,14 @@
+# sim/run_variant.ps1 + sim/ablation_table.py, Vivado 2025.2.1 xsim, image 0078_CAPP_testset_long_10115, log_param_pc4b,
+# memory model returning one word per cycle. Every configuration has YOLO_HEAD32_PARTITION_DDR and YOLO_TRUE_LATENCY_COUNTER.
+# v0 no other switch; v1 +YOLO_REFILL_SKIP; v2 +YOLO_L0_OC_BURST +YOLO_L0_IFM_OVERLAP; v3 +YOLO_OC_PIPELINE;
+# v4 +YOLO_WT_STREAM; v5 +YOLO_IMODE_OCP; final +YOLO_STORE_OVERLAP (rtl/yolo_build_config_h.v as committed).
+# bit_exact: all 11 feature-map snapshots and both output tensors equal the NumPy model. Lx_ms: time from the previous
+# layer switch to the end of layer x; L10 includes the stride-1 pooling L11.
+config	cycles	bit_exact	L0_ms	L2_ms	L4_ms	L6_ms	L8_ms	L10_ms	L12_ms	L13_ms	L14_ms	L17_ms	L20_ms
+v0	16196772	yes	43.0209	25.0676	15.1758	10.5829	9.3893	13.6212	7.5628	13.1296	6.1164	2.0545	16.2467
+v1	15680613	yes	43.0209	25.0676	15.1758	10.5829	9.3893	11.0813	7.5628	10.5898	6.1164	1.9726	16.2467
+v2	11927551	yes	5.4903	25.0676	15.1758	10.5829	9.3893	11.0813	7.5628	10.5898	6.1164	1.9726	16.2467
+v3	8102911	yes	5.4903	6.0212	5.4990	5.7445	7.0085	9.9293	7.5628	9.4378	6.1164	1.9726	16.2467
+v4	7677136	yes	5.4903	6.0212	5.4990	5.5601	6.2709	9.5188	6.5605	9.0272	5.3530	1.7963	15.6741
+v5	7348595	yes	5.4903	6.0212	5.4990	5.5601	6.2709	9.5188	5.9447	9.0272	4.8899	1.4862	13.7777
+final	7224983	yes	5.4903	6.0212	5.4990	5.5601	6.2709	9.5188	5.9447	9.0272	4.6426	1.4862	12.7888

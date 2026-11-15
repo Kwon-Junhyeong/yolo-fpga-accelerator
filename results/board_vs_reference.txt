@@ -1,0 +1,9 @@
+# sim/compare_board_dumps.py <board dumps> <reference>, reference = output tensors of quant/hw_pipeline.py with log_param_pc4b
+# 229-image board batch, build with every switch of rtl/yolo_build_config_h.v except YOLO_STORE_OVERLAP and YOLO_TRUE_LATENCY_COUNTER
+board_files=458 reference_files=458
+files=458 missing=0 mismatch=0 words_compared=14289600
+# final build (every switch on), board dumps of 7 images, --present-only
+# stems 0000_CAPP_testset_close_10004, 0003_CAPP_testset_close_10117, 0007_CAPP_testset_long_10113, 0020_CAPP_testset_close_10050,
+#       0025_CAPP_testset_close_10038, 0031_CAPP_testset_close_10119, 0055_CAPP_testset_close_10057
+board_files=14 reference_files=14
+files=14 missing=0 mismatch=0 words_compared=436800

@@ -1,0 +1,54 @@
+# xsim, sim/tb_frame.v, +RUN_L20 +DMA_STRESS16 (one memory word every 16 cycles), image 0078_CAPP_testset_long_10115, final parameters
+[200000] L14/L20 outputs: raw int32, drained per 32-channel partition
+[10877666000] PERF L0: store_state_cycles=1 store_dma_cycles=0
+[10877666000] dump L0 snapshot
+[10877666000] L0 pe_done_latch interlock stall cycles = 419707 (dma_rd_gap=15)
+[16898876000] PERF L2: store_state_cycles=1 store_dma_cycles=0
+[16898876000] dump L2 snapshot
+[22397846000] PERF L4: store_state_cycles=1 store_dma_cycles=0
+[22397846000] dump L4 snapshot
+[31644316000] PERF L6: store_state_cycles=1 store_dma_cycles=0
+[31644316000] dump L6 snapshot
+[52660826000] PERF L8: store_state_cycles=1 store_dma_cycles=0
+[52660826000] dump L8 snapshot
+[52660826000] dump L8 raw route snapshot
+[120670446000] reached S_POOL11 after L10 writes; dump L10 before pool11 modifies L2
+[121161966000] pool11 done; dump L11 snapshot
+[121161986000] PERF L10: store_state_cycles=0 store_dma_cycles=0
+[141852336000] PERF L12: store_state_cycles=1 store_dma_cycles=0
+[141852336000] dump L12 snapshot
+[209861966000] PERF L13: store_state_cycles=1 store_dma_cycles=0
+[209861966000] dump L13 snapshot
+[225629256000] PERF L14: store_state_cycles=395 store_dma_cycles=25128
+[225629256000] dump L14 snapshot
+[230801866000] PERF L17: store_state_cycles=1 store_dma_cycles=0
+[230801866000] dump L17 snapshot
+[251922426000] PERF L20: store_state_cycles=1553 store_dma_cycles=100446
+[251922426000] dump L20 snapshot
+[251922426000] CSR_LATCH: inference_cycles=25192212 network_done=1 ap_start=0
+
+# comparison
+# golden comparison, 8-bit layers
+[L0] PASS words=65536 word_mismatches=0 byte_mismatches=0
+[L2] PASS words=32768 word_mismatches=0 byte_mismatches=0
+[L4] PASS words=16384 word_mismatches=0 byte_mismatches=0
+[L6] PASS words=8192 word_mismatches=0 byte_mismatches=0
+[L8] PASS words=4096 word_mismatches=0 byte_mismatches=0
+[L10] PASS words=8192 word_mismatches=0 byte_mismatches=0
+[L12] PASS words=4096 word_mismatches=0 byte_mismatches=0
+[L13] PASS words=8192 word_mismatches=0 byte_mismatches=0
+[L17] PASS words=2048 word_mismatches=0 byte_mismatches=0
+[L8RAW] PASS words=16384 word_mismatches=0 byte_mismatches=0
+[L11] PASS words=8192 word_mismatches=0 byte_mismatches=0
+[compare-hw] PASS: RTL snapshots match hardware-style golden for selected layers.
+# 32-bit heads: RTL DDR output vs NumPy golden vs graded reference
+[L14 golden(params) vs reference] PASS words=12480 word_mismatches=0
+[L14 RTL ddr vs golden(params)] PASS words=12480 word_mismatches=0
+[L14 RTL ddr vs reference numpy ref] PASS words=12480 word_mismatches=0
+[L20 golden(params) vs reference] PASS words=49920 word_mismatches=0
+[L20 RTL ddr vs golden(params)] PASS words=49920 word_mismatches=0
+[L20 RTL ddr vs reference numpy ref] PASS words=49920 word_mismatches=0
+[check-heads] PASS
+# 32-bit heads: RTL DDR output vs board dump of the same image
+[L14] rtl_words=12480 board_words=12480 identical=True
+[L20] rtl_words=49920 board_words=49920 identical=True

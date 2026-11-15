@@ -1,0 +1,13 @@
+# sim/synth_mul_array.tcl, out-of-context synthesis of rtl/mac_stack.v (72 multiplier cells, 144 products), xc7a100tcsg324-1, Vivado 2025.2.1
+## packed
+| Slice LUTs*             | 5857 |     0 |          0 |     63400 |  9.24 |
+| Slice Registers         | 8541 |     0 |          0 |    126800 |  6.74 |
+| DSPs           |   72 |     0 |          0 |       240 | 30.00 |
+## unpacked_dsp
+| Slice LUTs*             | 1429 |     0 |          0 |     63400 |  2.25 |
+| Slice Registers         | 3753 |     0 |          0 |    126800 |  2.96 |
+| DSPs           |  144 |     0 |          0 |       240 | 60.00 |
+## unpacked
+| Slice LUTs*                | 11726 |     0 |          0 |     63400 | 18.50 |
+| Slice Registers            | 10953 |     0 |          0 |    126800 |  8.64 |
+| DSPs      |    0 |     0 |          0 |       240 |  0.00 |

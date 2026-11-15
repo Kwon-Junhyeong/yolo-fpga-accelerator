@@ -1,0 +1,15 @@
+# quant/eval_heads.py --reference <hw_pipeline.py output, log_param_pc4b> --dataset <contest dataset>, Python scorer in quant/pyscore, 229 images
+# int32-partition: the output tensors as the final RTL writes them
+images = 229
+detections_count = 13187, unique_truth_count = 2959
+ for thresh = 0.24, precision = 0.83, recall = 0.71, F1-score = 0.76 
+ for thresh = 0.24, TP = 2089, FP = 416, FN = 870, average IoU = 60.79 % 
+
+ mean average precision (mAP) = 0.804528, or 80.45 % 
+# int16-q4: the same tensors shifted to Q4 and clamped to 16 bits
+images = 229
+detections_count = 13956, unique_truth_count = 2959
+ for thresh = 0.24, precision = 0.83, recall = 0.71, F1-score = 0.77 
+ for thresh = 0.24, TP = 2105, FP = 433, FN = 854, average IoU = 60.16 % 
+
+ mean average precision (mAP) = 0.804632, or 80.46 % 

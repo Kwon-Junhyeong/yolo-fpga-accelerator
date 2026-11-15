@@ -1,0 +1,14 @@
+# firmware/test/build_and_run.sh with the MinGW gcc of Vivado 2025.2.1 and mb-gcc 13.3 of the same install
+PASS forward returns 0 when the done bit is set
+PASS register writes: soft reset, clear, read base, write base, config, start, clear
+PASS input image copied from the staging window to the accelerator's input
+PASS weights of layers 6 and 20 copied to the addresses in rtl/cnn_ctrl_v2.v
+PASS L14 and L20 outputs copied to the staging windows the JTAG batch reads
+PASS result holds the cycle register, the poll count and reg0
+PASS result holds the first output words
+PASS weights are not copied again on the next frame
+PASS weights are copied again after yolo_hw_forget_weights
+PASS forward returns -1 when the done bit does not come within the poll limit
+0 failures
+MicroBlaze compile: OK
+# linked for MicroBlaze (-Os, gc-sections): text 5205, data 16, bss 1376 bytes, within the 16 KB local memory

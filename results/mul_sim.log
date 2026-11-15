@@ -1,0 +1,4 @@
+# xsim, rtl/mul.v compiled with USE_DSP_PACKED
+[tb_mul_packed] PASS
+[tb_mul_exhaustive] vectors=16777216 errors=0
+[tb_mul_exhaustive] PASS

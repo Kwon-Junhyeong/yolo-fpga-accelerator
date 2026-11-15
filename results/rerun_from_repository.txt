@@ -1,0 +1,10 @@
+# Steps run again from this repository's scripts on a PC with the contest package (no Vivado, no board)
+
+# 1. quant/make_pc2.py and quant/make_pc4.py, CONTEST_BIN = contest bin with aix2024.cfg and aix2024.weights
+#    log_param_pc4b compared file by file with the parameter set used for the board build
+files=33 identical=33
+
+# 2. quant/hw_pipeline.py run --params log_param_pc4b, inputs = the 229 input files used for the board batch (not in this repository)
+#    compared with the board dumps by sim/compare_board_dumps.py
+229-image board batch: files=458 missing=0 mismatch=0 words_compared=14289600
+final build, 7 images:  files=14 missing=0 mismatch=0 words_compared=436800

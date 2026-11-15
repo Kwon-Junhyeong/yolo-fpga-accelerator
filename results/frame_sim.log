@@ -1,0 +1,28 @@
+# xsim, sim/tb_frame.v, +RUN_L20, image 0078_CAPP_testset_long_10115, final parameters
+[200000] L14/L20 outputs: raw int32, drained per 32-channel partition
+[5490586000] PERF L0: store_state_cycles=1 store_dma_cycles=0
+[5490586000] dump L0 snapshot
+[5490586000] L0 pe_done_latch interlock stall cycles = 0 (dma_rd_gap=0)
+[11511796000] PERF L2: store_state_cycles=1 store_dma_cycles=0
+[11511796000] dump L2 snapshot
+[17010766000] PERF L4: store_state_cycles=1 store_dma_cycles=0
+[17010766000] dump L4 snapshot
+[22570836000] PERF L6: store_state_cycles=1 store_dma_cycles=0
+[22570836000] dump L6 snapshot
+[28841746000] PERF L8: store_state_cycles=1 store_dma_cycles=0
+[28841746000] dump L8 snapshot
+[28841746000] dump L8 raw route snapshot
+[37868966000] reached S_POOL11 after L10 writes; dump L10 before pool11 modifies L2
+[38360486000] pool11 done; dump L11 snapshot
+[38360506000] PERF L10: store_state_cycles=0 store_dma_cycles=0
+[44305256000] PERF L12: store_state_cycles=1 store_dma_cycles=0
+[44305256000] dump L12 snapshot
+[53332486000] PERF L13: store_state_cycles=1 store_dma_cycles=0
+[53332486000] dump L13 snapshot
+[57975096000] PERF L14: store_state_cycles=395 store_dma_cycles=25128
+[57975096000] dump L14 snapshot
+[59461306000] PERF L17: store_state_cycles=1 store_dma_cycles=0
+[59461306000] dump L17 snapshot
+[72250136000] PERF L20: store_state_cycles=1553 store_dma_cycles=100446
+[72250136000] dump L20 snapshot
+[72250136000] CSR_LATCH: inference_cycles=7224983 network_done=1 ap_start=0
