@@ -10,15 +10,15 @@ A CNN accelerator in Verilog that runs all eleven convolutional layers of a YOLO
 
 ![System](docs/system.png)
 
-## Power, clock and latency
+## Power and clock
 
-The contest score divides accuracy and frame rate by on-chip power, so every gain in frame rate is weighed against the power it costs. The accelerator uses 72 of the 240 DSP slices and runs at 100 MHz on its own clock, apart from the DDR2 controller's 81.25 MHz.
+The contest score rewards accuracy and frame rate relative to on-chip power, so each gain in frame rate is weighed against its power cost. The accelerator uses 72 of the 240 DSP slices and runs at 100 MHz on its own clock, apart from the DDR2 controller's 81.25 MHz.
 
 ## Reuse data across the memory hierarchy
 
 On a small FPGA, moving data between memory and the multipliers sets the frame time more than multiplier speed does, so the design is built around reuse.
 
-- Feature maps stay on chip between layers. Only the input image, the weights of the later layers and the two outputs cross DDR2.
+- Feature maps stay on chip between layers. Only the input image, the weights of the later layers and the two outputs go to or from DDR2.
 - A tile stays in the window buffer while the weights of every output channel pass over it, so each tile is fetched once.
 - Two ping-pong window buffers overlap loading and compute: one feeds the multipliers while the other refills.
 - Each buffer is split into 16 banks, so reading any 4 x 4 window touches each bank once.
@@ -29,7 +29,7 @@ Overlapping the transfers with computation, layer by layer, cut the simulated fr
 
 ## Checked bit for bit
 
-An integer model of the network with the hardware's arithmetic matched the RTL simulation after every layer, and on the board all 458 output tensors of the 229 test images matched it bit for bit.
+An integer model using the hardware's arithmetic matched the RTL simulation after every layer. On the board, all 458 output tensors of the 229 test images matched the integer model bit for bit.
 
 ## Build
 
