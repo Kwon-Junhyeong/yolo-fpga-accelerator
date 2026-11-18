@@ -23,23 +23,17 @@ On a small FPGA, moving data between memory and the multipliers sets the frame t
 - Two ping-pong window buffers overlap loading and compute: one feeds the multipliers while the other refills.
 - Each buffer is split into 16 banks, so reading any 4 x 4 window touches each bank once.
 
-![Datapath](docs/datapath.png)
-
 One weight word serves four outputs, and one DSP slice multiplies a weight by two activations: 144 products per clock from 72 slices.
-
-![Two products in one DSP slice](docs/dsp.png)
 
 Overlapping the transfers with computation, layer by layer, cut the simulated frame time by a factor of 2.24.
 
-![Frame cycles as each overlap is added](docs/ablation.png)
-
 ## Checked bit for bit
 
-`quant/hw_pipeline.py` computes the network with the hardware's integer arithmetic. The RTL simulation matches it after every layer, and on the board all 458 output tensors of the 229 test images match it bit for bit.
+An integer model of the network with the hardware's arithmetic matched the RTL simulation after every layer, and on the board all 458 output tensors of the 229 test images matched it bit for bit.
 
-## Run
+## Build
 
-- Full-frame simulation: `sim/tb_frame.v`, compared with `sim/golden.py` and `sim/check_heads.py`
+- ROM contents for synthesis: `quant/make_roms.py`
 - Bitstream: `fpga/create_project.tcl`, `fpga/create_bd.tcl`, `fpga/implement.tcl` (Vivado 2022.2)
 - Firmware: `firmware/create_app.tcl`
-- Board run from the contest's C program: `host/yolo_jtag_forward.ps1`, compared with `sim/compare_board_dumps.py`
+- Board run from the contest's C program: `host/yolo_jtag_forward.ps1`

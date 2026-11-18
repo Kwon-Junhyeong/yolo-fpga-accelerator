@@ -11,9 +11,9 @@ setws $workspace
 platform create -name yolo_mb_platform -hw $xsa
 domain create -name standalone_domain -os standalone -proc microblaze_0
 platform generate
-app create -name yolo_mb_smoke -platform yolo_mb_platform -domain standalone_domain -template {Empty Application}
+app create -name yolo_mb -platform yolo_mb_platform -domain standalone_domain -template {Empty Application}
 foreach f [glob -nocomplain -directory $src_dir *.c *.h] {
-    importsources -name yolo_mb_smoke -path $f
+    importsources -name yolo_mb -path $f
 }
-app build -name yolo_mb_smoke
-puts "YOLO_MB_ELF=[file join $workspace yolo_mb_smoke Debug yolo_mb_smoke.elf]"
+app build -name yolo_mb
+puts "YOLO_MB_ELF=[file join $workspace yolo_mb Debug yolo_mb.elf]"

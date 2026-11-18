@@ -53,7 +53,7 @@ def main():
     with open(rom72, "w") as f:
         for e in entries:
             f.write("".join(f"{b & 0xFF:02x}" for b in e[::-1]) + "\n")
-    print(f"[make_static_roms] wrote {rom72} ({ROM72_DEPTH} x 72-bit)")
+    print(f"[make_roms] wrote {rom72} ({ROM72_DEPTH} x 72-bit)")
 
     rom288 = out / "weight_1024x288.hex"
     lines72 = ["".join(f"{b & 0xFF:02x}" for b in e[::-1]) for e in entries]
@@ -61,7 +61,7 @@ def main():
         for a in range(ROM72_DEPTH // 4):
             f.write(lines72[4 * a + 3] + lines72[4 * a + 2]
                     + lines72[4 * a + 1] + lines72[4 * a + 0] + "\n")
-    print(f"[make_static_roms] wrote {rom288} (1024 x 288-bit)")
+    print(f"[make_roms] wrote {rom288} (1024 x 288-bit)")
 
     bsc = [0] * BSC_DEPTH
     for lid, base, out_ch in BSC_LAYERS:
@@ -79,7 +79,7 @@ def main():
     with open(bsc_path, "w") as f:
         for wword in bsc:
             f.write(f"{wword:08x}\n")
-    print(f"[make_static_roms] wrote {bsc_path} ({BSC_DEPTH} x 32-bit)")
+    print(f"[make_roms] wrote {bsc_path} ({BSC_DEPTH} x 32-bit)")
 
 if __name__ == "__main__":
     main()

@@ -1,14 +1,7 @@
 #include "yolo_hw_forward.h"
 
-#ifdef YOLO_HW_HOST_TEST
-uint32_t yolo_test_read(uint32_t addr);
-void yolo_test_write(uint32_t addr, uint32_t value);
-#define YOLO_RD(addr)        yolo_test_read(addr)
-#define YOLO_WR(addr, value) yolo_test_write((addr), (value))
-#else
 #define YOLO_RD(addr)        (*(volatile uint32_t *)(uintptr_t)(addr))
 #define YOLO_WR(addr, value) (*(volatile uint32_t *)(uintptr_t)(addr) = (value))
-#endif
 
 #define CSR(off) (YOLO_CSR_BASE + (off))
 

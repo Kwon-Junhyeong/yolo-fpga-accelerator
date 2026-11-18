@@ -11,7 +11,7 @@ param(
     [string]$Vivado = "vivado",
     [string]$Xsct = "xsct",
     [string]$ProgramBitTcl = (Join-Path $PSScriptRoot "program_yolo_mb_bit.tcl"),
-    [string]$DownloadElfTcl = (Join-Path $PSScriptRoot "download_yolo_mb_smoke_elf.tcl"),
+    [string]$DownloadElfTcl = (Join-Path $PSScriptRoot "download_yolo_mb_elf.tcl"),
     [string]$Bitstream = "",
     [string]$Elf = "",
     [string]$TargetSerial = "",
