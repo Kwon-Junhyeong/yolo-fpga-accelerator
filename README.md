@@ -1,6 +1,6 @@
 # YOLO FPGA Accelerator
 
-A CNN accelerator in Verilog that runs all eleven convolutional layers of a YOLOv2 detector on the Artix-7 FPGA of a Nexys A7-100T board. It recognizes 60 kinds of shelf products. Built for the 2026 Deep Learning Hardware Design Contest (3rd place).
+A CNN accelerator in Verilog that runs all eleven convolutional layers of a YOLOv2 detector on the Artix-7 FPGA of a Nexys A7-100T board. It recognizes 60 kinds of shelf products. Built for the 2026 Deep Learning Hardware Design Contest (3rd Place).
 
 | | |
 |---|---|
