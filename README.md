@@ -27,6 +27,19 @@ One weight word serves four outputs, and one DSP slice multiplies a weight by tw
 
 Overlapping the transfers with computation, layer by layer, cut the simulated frame time by a factor of 2.24.
 
+The schedule was tightened in six changes, each measured on the board before the next:
+
+1. Skip refilling the window buffer when a layer restarts on the same input
+2. Stream the image into the first layer while it computes
+3. Keep the multipliers fed across output channels in the 3 x 3 layers
+4. Stream the weights from DDR2 while the layer computes
+5. Keep the multipliers fed across output channels in the 1 x 1 layers
+6. Store a layer's outputs while the next layer computes
+
+![The board after each change](docs/steps.png)
+
+Together they save 8.6 million clock cycles per frame. On-chip power stays between 1.68 and 1.73 W, and timing is met at 100 MHz after every change.
+
 ## Checked bit for bit
 
 An integer model using the hardware's arithmetic matched the RTL simulation after every layer. On the board, all 458 output tensors of the 229 test images matched the integer model bit for bit.
