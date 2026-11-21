@@ -3,7 +3,7 @@ param(
     [int]$ImageIndex = -1,
     [string]$InputHex = "",
     [string]$Stem = "",
-    [string]$OutDir = "C:\skeleton\bin\yolo_hw_jtag_runtime",
+    [string]$OutDir = "yolo_hw_jtag_runtime",
     [string]$PathsFile = "",
     [int]$Seq = 1,
     [string]$Manifest = "",

@@ -26,7 +26,7 @@
 #define YOLO_HW_PATH_MAX 4096
 #define YOLO_HW_CMD_MAX 16384
 #define YOLO_HW_JTAG_DEFAULT_SCRIPT "yolo_jtag_forward.ps1"
-#define YOLO_HW_JTAG_DEFAULT_OUT_DIR "C:/skeleton/bin/yolo_hw_jtag_runtime"
+#define YOLO_HW_JTAG_DEFAULT_OUT_DIR "yolo_hw_jtag_runtime"
 
 static unsigned long yolo_hw_stats_calls = 0;
 static unsigned long yolo_hw_stats_cycle_calls = 0;
